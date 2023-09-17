@@ -3,6 +3,14 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+#Pongpisut
+# Ignore specific folders and their contents
+Course/
+.tmp.driveupload/
+
+
+
+
 # User-specific files
 *.rsuser
 *.suo
