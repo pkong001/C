@@ -129,6 +129,15 @@ namespace HelloWorld
             return num1 + num2;
         }
 
+        public static void GreetFriend()
+        {
+            string friendName = "Frank";
+            Console.WriteLine(friendName);
+            friendName = Console.ReadLine();
+            Console.WriteLine(friendName);
+        }
+
+
     }
 }
 

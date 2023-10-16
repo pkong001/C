@@ -6,6 +6,8 @@
 #Pongpisut
 # Ignore specific folders and their contents
 Course/
+Is this empty/
+Projects/
 .tmp.driveupload/
 .tmp.drivedownload/
 
