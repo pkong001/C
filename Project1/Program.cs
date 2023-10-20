@@ -110,6 +110,102 @@ namespace HelloWorld
             Console.WriteLine(myAddResult);
             Console.WriteLine(Add(1, 3));
 
+            string _friend1 = "Nut";
+            string _friend2 = "Mob";
+            string _friend3 = "Tian";
+
+            GreetFriend(_friend1,_friend2,_friend3);
+
+            Console.WriteLine("Pleaes enter a number!");
+            string userInput = Console.ReadLine();
+            int _num1 = 5;
+            int _num2 = 0;
+            int result;
+
+                try
+            {
+                result = _num1 / _num2;
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Cannot devided by zero");
+            }
+                try
+                {
+                    int userInputAsInt = int.Parse(userInput);
+                }
+                catch(FormatException)
+                {
+                    Console.WriteLine("Format exception, please enter the correct type next time.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow exception, the number was too long or too short for int32");
+                }
+                catch(ArgumentNullException)
+                {
+                    Console.WriteLine("The value was empty");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Something went wrong!");
+                }
+                finally
+                {
+                    Console.WriteLine("Finally we reached the end of the line");
+                }
+
+            _num1 = -5;
+            _num2 = 3;
+            int _num3;
+
+            // unary operators
+            _num3 = -num1;
+            Console.WriteLine("num3 is {0}", _num3);
+
+            bool _isSunny = true;
+            Console.WriteLine("is it sunny? {0}", !_isSunny);
+
+            // increment operators
+            int _num = 0;
+            _num1++;
+            Console.WriteLine("num is {0}", _num);
+            Console.WriteLine("num is {0}", _num++);
+            // pre-increment
+            Console.WriteLine("num is {0}", ++_num);
+
+
+            // decrement operators
+            _num1--;
+            Console.WriteLine("num is {0}", _num);
+            Console.WriteLine("num is {0}", _num--);
+            // pre-decrement
+            Console.WriteLine("num is {0}", --_num);
+
+            //normal operator
+            int _result;
+            _result = _num1 + _num2;
+            Console.WriteLine("result of _num1 + _num2 is {0}", _result);
+
+            //Relational and type operators
+            bool _isLower;
+            _isLower = _num1 < _num2;
+            Console.WriteLine("result of num1 < num2 is {0}", _isLower);
+
+            // equality operator
+            bool _isEqual;
+            _isEqual = _num1 == _num2;
+            Console.WriteLine("result of _num1 == _num2 is {0}", _isEqual);
+
+            _isEqual = _num1 != _num2;
+            Console.WriteLine("result of _num1 != _num2 is {0}", _isEqual);
+
+            //conditional operators
+            bool _isLowerAndSunny;
+            _isLowerAndSunny = _isLower && _isSunny;
+            Console.WriteLine("result of _isLowerAndSunny {0}", _isLowerAndSunny);
+
+
         }
         // acess modifier (static) return type method name (parameter1, parameter2)
         public static void WriteSomething() // public is the access modifier ---> to called method with in static this have to be static as well.
@@ -137,6 +233,12 @@ namespace HelloWorld
             Console.WriteLine(friendName);
         }
 
+        public static void GreetFriend(string _friendName1, string _friendName2, string _friendName3)
+        {
+            Console.WriteLine("Hi {0}, my friend!", _friendName1);
+            Console.WriteLine("Hi {0}, my friend!", _friendName2);
+            Console.WriteLine("Hi {0}, my friend!", _friendName3);
+        }
 
     }
 }
