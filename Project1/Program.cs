@@ -201,10 +201,45 @@ namespace HelloWorld
             Console.WriteLine("result of _num1 != _num2 is {0}", _isEqual);
 
             //conditional operators
-            bool _isLowerAndSunny;
-            _isLowerAndSunny = _isLower && _isSunny;
+            // AND
+            bool _isLowerAndSunny = _isLower && _isSunny;
             Console.WriteLine("result of _isLowerAndSunny {0}", _isLowerAndSunny);
+            // OR
+            bool _isLowerOrSunny = _isLower || _isSunny;
+            Console.WriteLine("result of _isLowerOrSunny {0}", _isLowerOrSunny);
 
+            //Conditioning
+            Console.WriteLine("What's the temperature like?");
+            string _temperaturestring = Console.ReadLine();
+            int _temperature = int.Parse(_temperaturestring);
+
+            if (_temperature == 10)
+            {
+                Console.WriteLine("It's 10 degree");
+            }
+            else if (_temperature < 10)
+            {
+                Console.WriteLine("The temperature is very low");
+            }
+            else
+            {
+                Console.WriteLine("I just want to say no!!!");
+            }
+            if (_temperature > 10)
+            {
+                Console.WriteLine("It's more than 10 degree");
+            }
+
+            string numberAsString = "128";
+            int parsedValue;
+            bool success = int.TryParse(numberAsString, out parsedValue);
+            // The retunred boolen is true when parsing was successful
+
+            if (success)
+                Console.WriteLine("Parsing successful - number is " + parsedValue);
+            else
+                Console.WriteLine("parsing failed");
+                
 
         }
         // acess modifier (static) return type method name (parameter1, parameter2)
