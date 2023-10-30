@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Formats.Asn1;
+using System.Net.NetworkInformation;
 
 namespace HelloWorld
 {
@@ -10,6 +11,9 @@ namespace HelloWorld
         const int weeks = 52, months = 12;
         const int days = 365;
         const string myBirthDay = "09091992";
+
+        static string username;
+        static string password;
 
         static void Main(string[] args)
         {
@@ -219,7 +223,7 @@ namespace HelloWorld
             }
             else if (_temperature < 10)
             {
-                Console.WriteLine("The temperature is very low");
+                Console.WriteLine("The temperature is very low?");
             }
             else
             {
@@ -239,8 +243,79 @@ namespace HelloWorld
                 Console.WriteLine("Parsing successful - number is " + parsedValue);
             else
                 Console.WriteLine("parsing failed");
-                
 
+            //Check for even and odd numbers
+            Check();
+
+            //Register screen
+            Register();
+            Login();
+
+            //Check age
+            Console.WriteLine("Checking the age for entering the club!!!, The default age is 25");
+            int age = 25;
+            switch (age)
+            {
+                case 15:
+                    Console.WriteLine("Too young to party in the club!");
+                    break;
+                case 20:
+                    Console.WriteLine("Just good enough to go!");
+                    break;
+                case 25:
+                    Console.WriteLine("Good to go!");
+                    break;
+                default:
+                    Console.WriteLine("How old are you then?");
+                    break;
+            }
+
+            //Try using if without {}
+            int _temp2 = -5;
+            string _state;
+            if (_temp2 < 0)
+                _state = "solid";
+            else 
+                _state = "liquid";
+            Console.WriteLine("State of matter is {0}", _state);
+
+            // In short (enhanced version of if statement)
+            _temp2 = 5;
+            _state = _temp2 < 0 ? "solid" : "liquid";
+            Console.WriteLine("State of matter is {0}", _state);
+
+            //Adding gas in enhanced version (Ternary Operator)
+            _temp2 = 120;
+            _state = _temp2 < 0 ? "solid" : _temp2 > 100 ? "gas" : "liquid";
+            Console.WriteLine("State of matter is {0}", _state);
+
+
+            //Ternary Operator
+            int inputTemperature = 0;
+            string temperatureMessage = string.Empty;
+            string inputValue = string.Empty;
+
+            //takes input from console
+            Console.Write("Enter the current temperature: ");
+            inputValue = Console.ReadLine();
+
+            //validate the input as valid input interger value
+            bool validInteger = int.TryParse(inputValue, out inputTemperature);
+
+            if(validInteger)
+            {
+                //if is valid integer then it will check for the conditions using nest
+                temperatureMessage = inputTemperature <= 15 ? "it is too cold here"
+                    : (inputTemperature >= 16 && inputTemperature <= 28) ? "it is cold here"
+                    : inputTemperature > 28 ? "It is hot here"
+                    : "";
+                Console.WriteLine(temperatureMessage);
+            }
+            else
+            {
+                //in case if the input value is not a valid temperature
+                Console.WriteLine("Not a valid Temperature");
+            }
         }
         // acess modifier (static) return type method name (parameter1, parameter2)
         public static void WriteSomething() // public is the access modifier ---> to called method with in static this have to be static as well.
@@ -274,6 +349,61 @@ namespace HelloWorld
             Console.WriteLine("Hi {0}, my friend!", _friendName2);
             Console.WriteLine("Hi {0}, my friend!", _friendName3);
         }
+
+        public static void Check()
+        {
+            try
+            {
+                Console.Write("Please enter an integer to check if it's an even number of else: ");
+                string _myString = Console.ReadLine();
+                int _myNumber = int.Parse(_myString);
+                if (_myNumber % 2 == 0)
+                {
+                    Console.WriteLine("This is even number");
+                }
+                else
+                {
+                    Console.WriteLine("This is Odd number");
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Incorrect Input");
+            }
+        }
+
+        public static void Register()
+        {
+            Console.WriteLine("Please enter your username");
+            username = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            password = Console.ReadLine();
+            Console.WriteLine("Registration completed");
+            Console.WriteLine("-----------------------------------");
+        }
+
+        public static void Login()
+        {
+            Console.WriteLine("Please enter your username");
+            if(username == Console.ReadLine())
+            {
+                Console.WriteLine("Please enter your password");
+                if(password == Console.ReadLine())
+                {
+                    Console.WriteLine("Login successful");
+                }
+                else
+                {
+                    Console.WriteLine("Login failed, wrong password. Restart Program");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Login failed, wrong username. Restart Program");
+            }
+        }
+
+
 
     }
 }
