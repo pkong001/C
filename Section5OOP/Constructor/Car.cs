@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassesAndObjects
 {
@@ -14,14 +11,34 @@ namespace ClassesAndObjects
         private int _hp;
         private string _color;
 
-        // Constructor
-        public Car(string name, int hp = 0, string color = "black")
+
+        // Default Constructor
+        public Car()
+        {
+            _name = "Car";
+            _hp = 0;
+            _color = "red";
+           
+        }
+        // Partial Specification Constructor
+        public Car(string name, int hp = 0)
+        {
+            _name = name;
+            Console.WriteLine(name + " was created");
+            _hp = hp;
+            _color="red";
+            
+        }
+        // Full Specification Constructor
+        public Car(string name, int hp, string color)
         {
             _name = name;
             Console.WriteLine(name + " was created");
             _hp = hp;
             _color = color;
         }
+
+       
 
         // Member Method
         public void Drive() { 
