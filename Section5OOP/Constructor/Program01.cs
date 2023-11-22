@@ -10,20 +10,19 @@ namespace ClassesAndObjects
     internal class Program01
     {
         static void Main(string[] args)
-        {   
+        {
             Car myCar = new Car();
+            Console.WriteLine(myCar.GetHp());
             myCar.Details();
-            Car audi = new Car("Audi A4",250, "blue");
-            audi.Drive();
+            Car audi = new Car("Audi A4", 250, "blue");
             audi.Details();
             Car bmw = new Car("BMW M5", 350);
-            bmw.Drive();
             bmw.Details();
 
 
             Console.WriteLine("press 1 to stop the car!");
             string userInput = Console.ReadLine();
-            if(userInput == "1")
+            if (userInput == "1")
             {
                 audi.Stop();
             }
