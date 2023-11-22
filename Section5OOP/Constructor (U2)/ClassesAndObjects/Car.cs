@@ -5,36 +5,43 @@ using System.Drawing;
 namespace ClassesAndObjects
 {
     internal class Car
-    {
-        // Member variables
+    {   
+        // private Member variables/fields
         // access modifier private
         private string _name; // private field typically used for storing data.
         private int _hp;
         private string _color;
-
-        public int GetHp()
-        {
-            return _hp;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public void SetName(string name)
-        {
-            if (name == "")
-            {
-                _name = "DefaultName";
-            }
-            else
-            {
-                _name = name;
-            }
-
-        }
+        private int _MaxSpeedWriteOnly;
         
+        public int MaxSpeed { get; set; }
+
+        public int MaxSpeedReadOnly { get; } = 10;
+
+        public int MaxSpeedWriteOnly
+        {
+            set
+            {
+                _MaxSpeedWriteOnly = value;
+            }
+        }
+
+
+
+        // the public property
+        public string Name { 
+            get { return _name; } // get accessor
+            set { 
+                if(value == "" ) {
+                    _name = "Hello World Default Name";
+                }
+                else{
+                }
+                _name = value;
+            } // set accessor
+        }
+
+
+
         // Default Constructor
         public Car()
         {
@@ -49,7 +56,7 @@ namespace ClassesAndObjects
             _name = name;
             Console.WriteLine(name + " was created");
             _hp = hp;
-            _color = "red";
+            _color="red";
             Drive();
         }
         // Full Specification Constructor
@@ -62,12 +69,11 @@ namespace ClassesAndObjects
             Drive();
         }
 
-
+       
 
         // Member Method
-        public void Drive()
-        {
-            Console.WriteLine(_name + " is driving");
+        public void Drive() { 
+            Console.WriteLine(_name + " is driving"); 
         }
 
         // Member Methods
@@ -78,8 +84,8 @@ namespace ClassesAndObjects
 
         public void Details()
         {
-            Console.WriteLine("The " + _color + " car " + _name
-                + " has " + _hp + " hp");
+            Console.WriteLine("The "+_color +" car "+_name
+                + " has "+ _hp + " hp");
         }
     }
 }

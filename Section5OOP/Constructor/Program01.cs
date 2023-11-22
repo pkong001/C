@@ -31,7 +31,6 @@ namespace ClassesAndObjects
                 Console.WriteLine("Car drives indefinetely");
             }
 
-            //test
         }
     }
 }

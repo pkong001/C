@@ -4,47 +4,58 @@ using System.Drawing;
 
 namespace ClassesAndObjects
 {
-    internal class Car
+    internal class Car2
     {
-        // Member variables
+        // private Member variables/fields
         // access modifier private
         private string _name; // private field typically used for storing data.
         private int _hp;
         private string _color;
+        private int _MaxSpeedWriteOnly;
 
-        public int GetHp()
-        {
-            return _hp;
-        }
+        public int MaxSpeed { get; set; }
 
-        public string GetName()
-        {
-            return _name;
-        }
+        public int MaxSpeedReadOnly { get; } = 10;
 
-        public void SetName(string name)
+        public int MaxSpeedWriteOnly
         {
-            if (name == "")
+            set
             {
-                _name = "DefaultName";
+                _MaxSpeedWriteOnly = value;
             }
-            else
-            {
-                _name = name;
-            }
-
         }
-        
+
+
+
+        // the public property
+        public string Name
+        {
+            get { return _name; } // get accessor
+            set
+            {
+                if (value == "")
+                {
+                    _name = "Hello World Default Name";
+                }
+                else
+                {
+                }
+                _name = value;
+            } // set accessor
+        }
+
+
+
         // Default Constructor
-        public Car()
+        public Car2()
         {
-            _name = "Car";
+            _name = "Car2";
             _hp = 5;
             _color = "red";
             Drive();
         }
         // Partial Specification Constructor
-        public Car(string name, int hp = 0)
+        public Car2(string name, int hp = 0)
         {
             _name = name;
             Console.WriteLine(name + " was created");
@@ -53,7 +64,7 @@ namespace ClassesAndObjects
             Drive();
         }
         // Full Specification Constructor
-        public Car(string name, int hp, string color)
+        public Car2(string name, int hp, string color)
         {
             _name = name;
             Console.WriteLine(name + " was created");
