@@ -66,6 +66,62 @@ namespace MultiDimensionalArrays
 
             //To keep the Console open
             Console.Read();
+
+            //The iterate through each one
+            foreach (int item in array2D)
+            {
+                Console.Write(item + " ");
+            }
+
+            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("This is our 2D array printed using nested for loop");
+            // outer for loop // 0 = row
+            for (int i = 0; i < array2D.GetLength(0) ; i++)
+            {
+                // inner for loop // 1 = column
+                for (int j = 0; j < array2D.GetLength(1) ; j++) 
+                {
+                    //print only odd number
+                    if (array2D[i,j]%2 != 0)
+                    {
+                        Console.Write(array2D[i, j] + " ");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    
+                }
+            }
+
+
+            Console.ReadKey();
+            Console.WriteLine();
+
+
+            // *** THIS WILL ONLY WORK WITH THE ARRAY THAT HAVE SAME NUMBERS OF COLUMNS AND ROWS
+            Console.WriteLine("This is the other way");
+            for (int i = 0, j = 2; i < array2D.GetLength(0) ; i++ , j--)
+            {
+                Console.WriteLine(array2D[i, j]);
+            }
+
+            Console.WriteLine();
+            Console.ReadKey();
+
+            string[,] _board =
+            {
+                {"X", "", "X" },
+                {"O", "", "O" },
+                {"O", "", "" }
+            };
+
+            Console.WriteLine(TicTacToe.Checker(_board));
+
+            Console.WriteLine();
+            Console.ReadKey();
         }
     }
 }
