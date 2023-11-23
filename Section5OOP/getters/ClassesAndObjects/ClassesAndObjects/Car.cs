@@ -5,7 +5,7 @@ using System.Drawing;
 namespace ClassesAndObjects
 {
     internal class Car
-    {
+    {   
         // Member variables
         // access modifier private
         private string _name; // private field typically used for storing data.
@@ -18,13 +18,13 @@ namespace ClassesAndObjects
         }
 
         public string GetName()
-        {
+        {  
             return _name;
         }
 
         public void SetName(string name)
-        {
-            if (name == "")
+        {   
+            if(name == "")
             {
                 _name = "DefaultName";
             }
@@ -32,9 +32,9 @@ namespace ClassesAndObjects
             {
                 _name = name;
             }
-
+            
         }
-        
+
         // Default Constructor
         public Car()
         {
@@ -49,7 +49,7 @@ namespace ClassesAndObjects
             _name = name;
             Console.WriteLine(name + " was created");
             _hp = hp;
-            _color = "red";
+            _color="red";
             Drive();
         }
         // Full Specification Constructor
@@ -62,12 +62,11 @@ namespace ClassesAndObjects
             Drive();
         }
 
-
+       
 
         // Member Method
-        public void Drive()
-        {
-            Console.WriteLine(_name + " is driving");
+        public void Drive() { 
+            Console.WriteLine(_name + " is driving"); 
         }
 
         // Member Methods
@@ -78,8 +77,8 @@ namespace ClassesAndObjects
 
         public void Details()
         {
-            Console.WriteLine("The " + _color + " car " + _name
-                + " has " + _hp + " hp");
+            Console.WriteLine("The "+_color +" car "+_name
+                + " has "+ _hp + " hp");
         }
     }
 }
