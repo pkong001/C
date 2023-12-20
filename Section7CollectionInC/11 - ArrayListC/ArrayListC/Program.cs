@@ -44,7 +44,7 @@ namespace ArrayListC
                 {
                     sum += (double)obj;
                 }
-                else if( obj is string) 
+                else if( obj is string)
                 {
                     Console.WriteLine(obj);
                 }
